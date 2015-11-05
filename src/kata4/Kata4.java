@@ -23,18 +23,19 @@ public class Kata4 {
         }
         
         //print(file.listFiles(),"");
-        String from ="C:\\Users\\Public\\Pictures\\Sample Pictures\\Chrysanthemum.jpg";
-        String to="C:\\Users\\Public\\Pictures\\Sample Pictures\\Chrysanthemum(1).jpg";
+        String from ="C:\\Users\\usuario\\Downloads\\jfreechart-1.0.19.zip";
+        String to="C:\\Users\\usuario\\Downloads\\jfreechart-1.0.19(1).zip";
         
         BufferedInputStream  input=new BufferedInputStream(new FileInputStream(new File(from)));
         BufferedOutputStream  output=new BufferedOutputStream(new FileOutputStream(new File(to)));
+        byte[] buffer = new byte[1024];
         Date date = new Date();
         while(true){
-            int read = input.read();
+            int read = input.read(buffer);
             if(read<0){
                 break;
             }else{
-                output.write(read);
+                output.write(buffer);
             }
            
         }
